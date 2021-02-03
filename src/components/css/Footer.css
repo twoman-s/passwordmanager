@@ -1,0 +1,33 @@
+footer {
+  /* Give the footer a shadow too */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  height: 70px;
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+}
+footer nav ul {
+  display: flex;
+  /*  Put everything on one line  */
+  flex-direction: row;
+  /* Equally space everything  */
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+
+footer nav ul li {
+  /* Stop everything from hitting the edges of the footer   */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+footer nav ul li > i {
+  margin-bottom: -10px !important;
+}
