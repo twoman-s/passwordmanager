@@ -1,6 +1,40 @@
 import "./css/AddPassword.css";
+import firebase from "./../config";
+import { useState } from "react";
 
 function AddPassword() {
+  const [appName, setAppName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setcPassword] = useState("");
+
+  const ref = firebase.firestore().collection("passwords");
+  const savePassword = () => {
+    let data = {
+      application: appName,
+      username: userName,
+      email: email,
+      password: password,
+    };
+    const res = ref.add(data);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password != cpassword) {
+      window.alert("Password does not match");
+      document.getElementById("pass1").value = "";
+      document.getElementById("pass2").value = "";
+    } else {
+      savePassword();
+      window.alert("Password added successfully");
+      document.getElementById("pass1").value = "";
+      document.getElementById("pass2").value = "";
+      document.getElementById("username").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("appname").value = "";
+    }
+  };
   return (
     <div class="containerpassword">
       <form id="password" autocomplete="off">
@@ -8,33 +42,62 @@ function AddPassword() {
         <fieldset>
           <input
             placeholder="Application name"
+            id="appname"
             type="text"
             tabindex="1"
             required
             autofocus
-            className="in"
+            onChange={(e) => {
+              setAppName(e.target.value);
+            }}
           />
         </fieldset>
         <fieldset>
           <input
             placeholder="Email Address"
+            id="email"
             type="email"
             tabindex="2"
             required
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </fieldset>
         <fieldset>
-          <input placeholder="User Name" type="text" tabindex="3" required />
+          <input
+            placeholder="User Name"
+            id="username"
+            type="text"
+            tabindex="3"
+            required
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </fieldset>
         <fieldset>
-          <input placeholder="Password" type="password" tabindex="4" required />
+          <input
+            placeholder="Password"
+            id="pass1"
+            type="password"
+            tabindex="4"
+            required
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
         </fieldset>
         <fieldset>
           <input
             placeholder="Confirm Password"
+            id="pass2"
             type="password"
             tabindex="5"
             required
+            onChange={(e) => {
+              setcPassword(e.target.value);
+            }}
           />
         </fieldset>
         <fieldset>
@@ -42,7 +105,7 @@ function AddPassword() {
             name="submit"
             type="submit"
             id="contact-submit"
-            data-submit="...Sending"
+            onClick={handleSubmit}
           >
             Submit
           </button>

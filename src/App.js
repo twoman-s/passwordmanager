@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import AddPassword from "./components/AddPassword";
 import PasswordList from "./components/PasswordList";
-
 function App() {
   return (
     <Router>
