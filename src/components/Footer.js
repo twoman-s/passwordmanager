@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   const style = {
     textDecoration: "none",
-    color: "black",
+    color: "white",
   };
   return (
     <>

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 body {
-  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-  background: linear-gradient(to right, #25c481, #25b7c4);
+  background: -webkit-linear-gradient(left, #1c1d1d, #303131);
+  background: linear-gradient(to right, #303131, #1c1d1d);
   font-family: "Poppins", sans-serif;
   color: white;
 }

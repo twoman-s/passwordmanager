@@ -1,6 +1,7 @@
 import "./css/AddPassword.css";
 import firebase from "./../config";
 import { useState } from "react";
+import Particles from "react-particles-js";
 
 function AddPassword() {
   const [appName, setAppName] = useState("");
@@ -17,11 +18,11 @@ function AddPassword() {
       email: email,
       password: password,
     };
-    const res = ref.add(data);
+    ref.add(data);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password != cpassword) {
+    if (password !== cpassword) {
       window.alert("Password does not match");
       document.getElementById("pass1").value = "";
       document.getElementById("pass2").value = "";
@@ -37,6 +38,32 @@ function AddPassword() {
   };
   return (
     <div class="containerpassword">
+      <Particles
+        params={{
+          particles: {
+            number: {
+              value: 60,
+            },
+            size: {
+              value: 1,
+            },
+          },
+          interactivity: {
+            events: {
+              onhover: {
+                enable: true,
+                mode: "repulse",
+              },
+            },
+          },
+        }}
+        style={{
+          width: "100%",
+          position: "fixed",
+          top: 0,
+          left: 0,
+        }}
+      />
       <form id="password" autocomplete="off">
         <h3>Add New Password</h3>
         <fieldset>
