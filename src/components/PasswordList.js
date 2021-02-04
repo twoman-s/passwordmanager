@@ -79,14 +79,16 @@ const PasswordList = () => {
           }}
         />
         <h1>Password Manager</h1>
-        <form action="">
-          <input
-            id="search"
-            placeholder="Search"
-            onChange={handleSearch}
-            type="text"
-          />
-        </form>
+        <div class="searchform">
+          <form action="">
+            <input
+              id="search"
+              placeholder="Search"
+              onChange={handleSearch}
+              type="text"
+            />
+          </form>
+        </div>
         {noresult}
         <ul className="cards">
           {passlist.map((password) => (
